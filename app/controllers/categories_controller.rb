@@ -5,13 +5,14 @@ class CategoriesController < ApplicationController
 
 	def new
 		@category = Category.new
-		
-		redirect_to category_path(@category)
+		@category.save
 	end 
 
 	def create
-		@company = Category.new(category_params)
-		@company.save
+		@category= Category.new(category_params)
+		@category.save
+
+		redirect to category_path(@category)
 	end 
 
 	def edit
@@ -27,6 +28,13 @@ class CategoriesController < ApplicationController
 
 	def show
 		@category = Category.find(params[:id])
+	end 
+
+	def destroy
+		category = Category.find(params[:id])
+		category.destroy
+
+		redirect_to "/categories"
 	end 
 
 	private

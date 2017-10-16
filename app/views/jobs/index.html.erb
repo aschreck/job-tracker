@@ -7,5 +7,6 @@ All Jobs for <strong><%= @company.name %></strong>
 	</ul>
 <% end %>
 
+<%= link_to "New Job", new_company_job_path(@company) %>
 <h3>Back to <%=link_to 'Companies', '/companies'%></h3>
 

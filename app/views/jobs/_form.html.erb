@@ -11,5 +11,8 @@
   <%= f.label :city %>
   <%= f.text_field :city %>
 
+	<%= f.label :category %>
+	<%= f.select :lists, [["test1", 1], ["test2", 0]] %> 
+
   <%= f.submit %>
 <% end %>
