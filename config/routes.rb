@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+#	resources :comment #only: [:new]
   resources :jobs do
 		resources :comments
 	end 

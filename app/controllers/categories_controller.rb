@@ -5,14 +5,13 @@ class CategoriesController < ApplicationController
 
 	def new
 		@category = Category.new
-		@category.save
 	end 
 
 	def create
 		@category= Category.new(category_params)
 		@category.save
 
-		redirect to category_path(@category)
+		redirect_to category_path(@category)
 	end 
 
 	def edit
