@@ -12,7 +12,7 @@
   <%= f.text_field :city %>
 
 	<%= f.label :category %>
-	<%= f.select :lists, [["test1", 1], ["test2", 0]] %> 
+	<%= f.collection_select:category_id,Category.order(:title),:id, :title, include_blank: true %> %> 
 
   <%= f.submit %>
 <% end %>

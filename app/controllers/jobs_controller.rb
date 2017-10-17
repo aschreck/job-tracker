@@ -1,7 +1,14 @@
 class JobsController < ApplicationController
   def index
-    @company = Company.find(params[:company_id])
-    @jobs = @company.jobs
+		if params[:category_id]
+			@category = Category.find(params[:category_id])
+			@jobs = @category.jobs
+	   	render :'category_index.html.erb'
+		else 	
+	    @company = Company.find(params[:company_id])
+  	  @jobs = @company.jobs
+			render :'company_index.html.erb'
+		end 
   end
 
   def new
@@ -12,6 +19,7 @@ class JobsController < ApplicationController
   def create
     @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
+		
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
       redirect_to company_job_path(@company, @job)
@@ -37,14 +45,15 @@ class JobsController < ApplicationController
 
   def destroy
 		job = Job.find(params[:id])
+		company = job.company
 		job.destroy
 
-		redirect_to company_path(job)
+		redirect_to company_path(company)
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:title, :description, :level_of_interest, :city)
+    params.require(:job).permit(:title, :description, :level_of_interest, :city, :category_id)
   end
 end

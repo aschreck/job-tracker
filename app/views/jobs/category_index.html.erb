@@ -1,0 +1,10 @@
+All Jobs for <strong><%= @category.title%></strong>
+
+<% @jobs.each do |job| %>
+	<ul><%= job.title %> at <%= job.category.title%>
+		<%=link_to "Edit", edit_category_job_path(@category,job)%>
+		<%=link_to "Delete", category_job_path(@category,job), method: "delete"%>
+	</ul>
+<% end %>
+
+<h3>Back to <%=link_to 'Categories', '/categories'%></h3>

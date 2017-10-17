@@ -42,13 +42,13 @@ class CompaniesController < ApplicationController
     company.destroy
 
     flash[:success] = "#{company.name} was successfully deleted!"
-    redirect_to companies_path
+    redirect_to companies_path(company)
   end
 
 
   private
 
   def company_params
-    params.require(:category).permit(:name, :city)
+    params.require(:company).permit(:name, :city)
   end
 end
