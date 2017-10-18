@@ -14,6 +14,18 @@ class JobsController < ApplicationController
 			render :'location_index'
 		end 
   end
+	
+	def all_jobs
+		if params[:location]
+			@jobs = Job.sort_by_city
+		elsif params[:sort] == 'location'
+			@jobs = Job.sort_by_city
+		elsif params[:sort] == 'interest'
+			@jobs = Job.sort_by_levels_of_interest
+		else
+			@jobs = Job.all
+		end 
+	end 
 
   def new
     @company = Company.find(params[:company_id])

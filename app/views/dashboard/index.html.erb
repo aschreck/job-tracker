@@ -1,0 +1,16 @@
+<h2>Jobs by Interest Level</h2>
+<%@count_by_level_of_interest.each_pair do |level, count|%>
+<p> There were <%=count%> rated <%=level%>.</p>
+<%end%>
+
+<h2>Top 3 Companies By Interest Level</h2>
+<%@top_three_by_average_interest.each_pair do |company, interest|%>
+<p><%=company%></p>
+<%end%>
+
+<h2>Jobs By Location</h2>
+<%@count_by_city.each_pair do |city,count|%>
+	<p><%=city%>: <%=count%></p>
+<%end%>
+
+

@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
 #	resources :comment #only: [:new]
+	
   resources :jobs do
 		resources :comments
 	end 
   resources :companies do
     resources :contacts
   end 
+
+	get '/jobs', to: 'jobs#all_jobs', as: 'all_jobs'
+
+	get '/dashboard', to: 'dashboard#dashboard', as: "dashboard"
+
   resources :companies, :categories do
     resources :jobs
   end
