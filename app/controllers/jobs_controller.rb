@@ -4,11 +4,14 @@ class JobsController < ApplicationController
 			@category = Category.find(params[:category_id])
 			@jobs = @category.jobs
 	   	render :'category_index.html.erb'
-		else 	
+		elsif(params[:company_id]) 	
 	    @company = Company.find(params[:company_id])
   	  @jobs = @company.jobs
 			@contact = @company.contacts[0]
 			render :'company_index.html.erb'
+		else
+			@jobs = Job.sort_by_city
+			render :'location_index'
 		end 
   end
 
