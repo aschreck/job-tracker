@@ -8,10 +8,12 @@ class JobsController < ApplicationController
 	    @company = Company.find(params[:company_id])
   	  @jobs = @company.jobs
 			@contact = @company.contacts[0]
-			render :'company_index.html.erb'
-		else
-			@jobs = Job.sort_by_city
-			render :'location_index'
+			if  @contact.nil?
+				@contact = @company.contacts.new
+				render :'no_contact_company_index.html.erb'
+			else 
+				render :'company_index.html.erb'
+			end 
 		end 
   end
 	

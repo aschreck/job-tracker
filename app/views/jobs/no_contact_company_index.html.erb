@@ -8,13 +8,7 @@ All Jobs for <strong><%= @company.name %></strong>
 <% end %>
 
 <%= link_to "New Job", new_company_job_path(@company) %>
-<h4>Company Contact:</h4>
+<h4>Enter a New Company Contact:</h4>
 
-<ul>
-	<li><%= @contact.name %></li>
-	<li><%= @contact.position%></li>
-	<li><%= @contact.email %></li>
-</ul>
-
+ <%= render partial: "companies/new_contact"%>
 <h3>Back to <%=link_to 'Companies', '/companies'%></h3>
-

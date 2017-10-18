@@ -2,8 +2,10 @@ require 'rails_helper'
 
 describe "User creates a new job" do
   scenario "a user can create a new job" do
-    company = Company.create!(name: "ESPN")
-    visit new_company_job_path(company)
+    company = Company.create(name: "ESPN")
+    visit "/companies/#{company.id}/jobs"
+    save_and_launch_page
+    click_button "New Job"
 
     fill_in "job[title]", with: "Developer"
     fill_in "job[description]", with: "So fun!"
