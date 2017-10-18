@@ -7,6 +7,7 @@ class JobsController < ApplicationController
 		else 	
 	    @company = Company.find(params[:company_id])
   	  @jobs = @company.jobs
+			@contact = @company.contacts[0]
 			render :'company_index.html.erb'
 		end 
   end
