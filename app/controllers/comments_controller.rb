@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
 		@company = @job.company
 		@comment = @job.comments.new(comment_params)
 		if @comment.save
-			flash[:success] = "comment added!"
 			redirect_to company_job_path(@company, @job)
 		else 
 			render :new

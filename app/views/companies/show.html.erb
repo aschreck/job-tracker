@@ -1,5 +1,5 @@
 <%= render partial: "jobs/navbar" %>
-All Jobs for <strong><%= @company.name %></strong>
+<h1>All Jobs for <strong><%= @company.name %></strong></h1>
 
 <% @company.jobs.each do |job| %>
   <ul><%= job.title %></ul>

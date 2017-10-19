@@ -1,15 +1,18 @@
 <%= render partial: "jobs/navbar" %>
-All Jobs for <strong><%= @company.name %></strong>
+<div class="category-container">
+	<h1>All Jobs for <strong><%= @company.name %></strong></h1>
 
-<% @jobs.each do |job| %>
-	<ul><%=link_to "#{job.title}", company_job_path(@company,job) %> at <%= job.company.name %>
-		<%=link_to "Edit", edit_company_job_path(@company,job)%>
-		<%=link_to "Delete", company_job_path(@company,job), method: "delete"%>
-	</ul>
-<% end %>
+	<% @jobs.each do |job| %>
+		<div class="items">
+			<p><%=link_to "#{job.title}", company_job_path(@company,job) %> at <%= job.company.name %>
+				<%=link_to "Edit", edit_company_job_path(@company,job)%>
+				<%=link_to "Delete", company_job_path(@company,job), method: "delete"%>
+			</p>
+		</div></br >
+	<% end %>
 
-<%= link_to "New Job", new_company_job_path(@company) %>
-<h4>Enter a New Company Contact:</h4>
-
- <%= render partial: "companies/new_contact"%>
+	<%= link_to "New Job", new_company_job_path(@company),{class: "new-class"} %>
+	<h4>Enter a New Company Contact:</h4>
+</div>
+ <div class="items"><%= render partial: "companies/new_contact"%></div>
 <h3>Back to <%=link_to 'Companies', '/companies'%></h3>

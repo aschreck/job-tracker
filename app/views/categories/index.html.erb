@@ -4,13 +4,14 @@
 
 <% @categories.each do |category| %>
 	<div class='items'>
-	<p> 
-		<%=link_to category.title, category_path(category) %>
-		<%= link_to "Edit", edit_category_path(category) %>
-		<%= link_to "Delete", category_path(category), method: "delete"%>
-	</p></div></br >
+		<p> 
+			<%=link_to category.title, category_path(category) %>
+			<%= link_to "Edit", edit_category_path(category) %>
+			<%= link_to "Delete", category_path(category), method: "delete"%>
+		</p>
+	</div></br >
 <%end%>
-<%=link_to "New", new_category_path(@categories)%>
+<%=link_to "New", new_category_path(@categories),  {class:"new-class"}%>
 </div>
 
 

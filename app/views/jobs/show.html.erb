@@ -13,4 +13,4 @@ City: <%= @job.city %>
 <p></p>
 <%=render partial: '/comments/form' %>
 <%=render partial: '/comments/job-comments', locals: {comments: @job.comments.reverse} %>
-Back to: <%= link_to @job.company.name, company_path(@job.company) %>
+<div class="company-button">Back to: <%= link_to @job.company.name, company_path(@job.company) %></div>
