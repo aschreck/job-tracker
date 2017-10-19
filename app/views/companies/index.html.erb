@@ -1,13 +1,15 @@
-<h3>All Companies</h3>
+<%= render partial: "jobs/navbar" %>
+<h1>All Companies</h1>
 
-<ul>
   <% @companies.each do |company| %>
-  <li class=company_<%= company.id %>>
+    <div class='items'>
+    <p><% company.id %>
     <%= link_to company.name, company_path(company) %>
     <%= link_to "Edit", edit_company_path(company) %>
     <%= link_to "Delete", company_path(company), method: "delete" %>
-  </li>
-  <% end %>
-</ul>
+    </p>
+ </div></br > 
+ <% end %>
+
 <%=link_to "New", new_company_path%>
 

@@ -1,3 +1,4 @@
+<%= render partial: "jobs/navbar" %>
 <h2>Jobs by Interest Level</h2>
 <%@count_by_level_of_interest.each_pair do |level, count|%>
 <p> There were <%=count%> rated <%=level%>.</p>

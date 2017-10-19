@@ -1,4 +1,5 @@
-Title: <%= @job.title %>
+<%= render partial: "jobs/navbar" %>
+<h4><%= @job.title %><h4>
 <br>
 
 Description: <%= @job.description %>
@@ -8,7 +9,8 @@ Level of Interest: <%= @job.level_of_interest %>
 <br>
 
 City: <%= @job.city %>
-<br>
+</br >
+<p></p>
 <%=render partial: '/comments/form' %>
 <%=render partial: '/comments/job-comments', locals: {comments: @job.comments.reverse} %>
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
+Back to: <%= link_to @job.company.name, company_path(@job.company) %>

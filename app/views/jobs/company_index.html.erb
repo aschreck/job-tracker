@@ -1,20 +1,22 @@
-All Jobs for <strong><%= @company.name %></strong>
+<%= render partial: "jobs/navbar" %>
+<div class="category-container">
+	<h1>All Jobs for <strong><%= @company.name %></strong></h1>
 
-<% @jobs.each do |job| %>
-	<ul><%=link_to "#{job.title}", company_job_path(@company,job) %> at <%= job.company.name %>
-		<%=link_to "Edit", edit_company_job_path(@company,job)%>
-		<%=link_to "Delete", company_job_path(@company,job), method: "delete"%>
-	</ul>
-<% end %>
+	<% @jobs.each do |job| %>
+		<div class='items'>
+			<p><%=link_to "#{job.title}", company_job_path(@company,job) %> at <%= job.company.name %>
+				<%=link_to "Edit", edit_company_job_path(@company,job)%>
+				<%=link_to "Delete", company_job_path(@company,job), method: "delete"%>
+			</p>
+		</div></br >
+		<% end %>
+	<div class='items'><%= link_to "New Job", new_company_job_path(@company), {class:"new-class"} %></div>
 
-<%= link_to "New Job", new_company_job_path(@company) %>
-<h4>Company Contact:</h4>
-
-<ul>
-	<li>Name: <%= @contact.name %></li>
-	<li>Position: <%= @contact.position%></li>
-	<li>Email: <%= @contact.email %></li>
-</ul>
-
-<h3>Back to <%=link_to 'Companies', '/companies'%></h3>
-
+	<h4>Company Contact:</h4>
+		<div class = 'items'>
+			<p>Name: <%= @contact.name %></p>
+			<p>Position: <%= @contact.position%></p>
+			<p>Email: <%= @contact.email %></p>
+		</div>
+	<h3>Back to <%=link_to 'Companies', '/companies'%></h3>
+</div>
