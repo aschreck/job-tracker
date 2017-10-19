@@ -41,6 +41,10 @@ a {
   background-color: rgb(181, 32, 32);
 }
 
+a:hover {
+  background-color :rgb(222, 112, 112);
+}
+
 .topnav {
   background-color:  rgb(181, 32, 32);
   overflow: hidden;
